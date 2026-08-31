@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
+import { logoMarkDataUri } from "@/lib/logo-mark";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -22,22 +23,8 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: 18,
-              background: "#d98324",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 34,
-              fontWeight: 700,
-              color: "#0e2419",
-            }}
-          >
-            T
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoMarkDataUri({ radius: 8 })} width={64} height={64} alt="" />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 34, fontWeight: 700 }}>Tikobane Trust</span>
             <span style={{ fontSize: 19, color: "#f2c572", letterSpacing: 3 }}>DETE · ZIMBABWE</span>
