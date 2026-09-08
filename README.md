@@ -126,11 +126,15 @@ element and size the Photo with `h-full w-full` (see `PageHero`).
 
 ## Configuration
 
-Everything in `.env.example` is optional — the site runs fully without it.
+The site renders without environment settings, but forms require SMTP or a webhook to deliver submissions.
 
-- **`NEXT_PUBLIC_SITE_URL`** — canonical URL for metadata, sitemap and robots.
-- **`CONTACT_WEBHOOK_URL`** — where contact submissions are forwarded. Unset, submissions are
-  validated and logged server-side, and the user still sees a proper confirmation.
+- **`NEXT_PUBLIC_SITE_URL`** — canonical origin for metadata, canonical tags, sitemap and
+  robots. **Must match the host the site is actually served from, exactly.** The production
+  host 308-redirects `tikobanezimbabwe.org` to `www.tikobanezimbabwe.org`, so the canonical
+  origin is `https://www.tikobanezimbabwe.org` (which is now also the fallback). Setting it
+  to the bare domain generates a sitemap full of URLs that redirect — see
+  [Submitting the sitemap](#submitting-the-sitemap-to-google-search-console).
+- **`CONTACT_WEBHOOK_URL`** — fallback delivery endpoint when SMTP is not configured.
 - **`NEWSLETTER_WEBHOOK_URL`** — optional separate endpoint for signups.
 - **`DONATION_CHECKOUT_URL`** — the payment provider's checkout endpoint. The donate form
   appends `amount`, `frequency` and `designation` and redirects. Unset, the donate button
@@ -200,6 +204,32 @@ image, `sitemap.xml`, `robots.txt`, and Schema.org structured data (`NGO` on eve
 
 Still to do on the hosting side: connect Google Search Console and analytics.
 
+### Submitting the sitemap to Google Search Console
+
+The sitemap lives at `/sitemap.xml` and is generated at build time from the content files, so
+it never needs maintaining by hand.
+
+The one thing that *does* break it is a host mismatch. Every `<loc>` in the sitemap is built
+from `NEXT_PUBLIC_SITE_URL`, so if that value is not the host the site is served from, the
+sitemap advertises URLs that only redirect. Google rejects that two ways:
+
+- Submitting a sitemap URL that redirects → **"Couldn't fetch"**. Google will not follow a
+  redirect to a sitemap.
+- Submitting the correct sitemap URL, but with entries on a different host → the URLs are
+  outside the property's scope and get ignored.
+
+To submit it:
+
+1. Confirm the canonical host. `https://www.tikobanezimbabwe.org/sitemap.xml` must return
+   `200 application/xml`, and the `<loc>` values inside must be on that same host.
+2. In Search Console, use the property matching that host — a **Domain** property covers both
+   www and non-www and is the simplest option. A URL-prefix property must match exactly.
+3. Under **Sitemaps**, enter just the relative path `sitemap.xml`, not the full URL.
+
+If you would rather canonicalise on the bare domain, that is fine, but it means flipping the
+hosting redirect to send www → non-www *and* setting `NEXT_PUBLIC_SITE_URL` to the bare
+domain. The two must always agree.
+
 ---
 
 ## Deploying
@@ -220,3 +250,24 @@ npm run build && npm run start
   fluent speaker rather than machine-generated, so no scaffolding is included yet.
 - **Payment gateway** — awaiting Tikobane's choice of provider.
 - **Annual report and policy PDFs** — the `/transparency` and `/impact` pages have slots ready.
+
+### SMTP email
+
+`appsettings.json` holds email defaults. `.env.local` overrides them using the
+`SMTP_*` variables in `.env.example`. Keep `SMTP_PASSWORD` in the ignored local
+file or your hosting provider’s secret environment variables; leave the JSON
+password empty. Restart the server after changing environment variables.
+
+Contact submissions and newsletter signups are emailed to `SMTP_ADMIN_EMAIL`
+(default `info@tikobanezimbabwe.org`). Replies go to the submitter. SMTP takes
+priority over webhooks; failed delivery returns an error instead of confirming
+receipt. Port 587 with `SMTP_SECURE=false` requires a STARTTLS upgrade.
+
+Send an actual test email with Node.js 22.18+:
+
+```bash
+npm run email:test -- tedwell@outlook.com
+```
+
+SMTP acceptance confirms the server queued the message, not inbox delivery.
+Set the same SMTP environment variables on the production host before deploying.

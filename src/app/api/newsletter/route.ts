@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { isEmailConfigured, sendEmail } from "@/lib/email";
+
+export const runtime = "nodejs";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -15,24 +18,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "Please enter a valid email address." }, { status: 422 });
   }
 
-  const webhook = process.env.NEWSLETTER_WEBHOOK_URL ?? process.env.CONTACT_WEBHOOK_URL;
-  if (webhook) {
-    try {
+  const webhook = process.env.NEWSLETTER_WEBHOOK_URL || process.env.CONTACT_WEBHOOK_URL;
+  try {
+    if (isEmailConfigured()) {
+      await sendEmail({ subject: "Tikobane website: newsletter signup", replyTo: email, text: `Newsletter signup: ${email}\nReceived: ${new Date().toISOString()}` });
+    } else if (webhook) {
       const res = await fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ form: "newsletter", email, receivedAt: new Date().toISOString() }),
+        signal: AbortSignal.timeout(15000),
       });
-      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
-    } catch (error) {
-      console.error("[newsletter] delivery failed", error, { email });
-      return NextResponse.json(
-        { ok: false, message: "We could not sign you up just now. Please try again shortly." },
-        { status: 502 },
-      );
+      if (!res.ok) throw new Error("Webhook delivery failed");
+    } else {
+      throw new Error("No delivery method configured.");
     }
-  } else {
-    console.info("[newsletter] signup received (no NEWSLETTER_WEBHOOK_URL configured)", { email });
+  } catch {
+    console.error("[newsletter] delivery failed");
+    return NextResponse.json(
+      { ok: false, message: "We could not sign you up just now. Please try again shortly." },
+      { status: 502 },
+    );
   }
 
   return NextResponse.json({ ok: true, message: "You are on the list. Thank you for following our work." });

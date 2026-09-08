@@ -13,7 +13,15 @@ export const site = {
     "Tikobane Trust works with communities in and around Dete, Zimbabwe, to improve livelihoods, promote animal welfare, empower young people and create sustainable solutions for human-wildlife coexistence.",
   registrationNumber: "239/2018",
   founded: 2018,
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://tikobanezimbabwe.org",
+  /**
+   * Canonical origin, used for metadata, canonical tags, sitemap and robots.
+   *
+   * This MUST match the host the site is actually served from, including the
+   * `www.` prefix — hosting redirects the bare domain to `www.` with a 308, so
+   * a non-www value here produces a sitemap full of URLs that redirect, which
+   * Google Search Console rejects. No trailing slash.
+   */
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tikobanezimbabwe.org").replace(/\/+$/, ""),
   locale: "en_ZW",
   contact: {
     addressLines: ["253 Soweto Township", "Dete", "Matabeleland North", "Zimbabwe"],

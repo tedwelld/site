@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { isEmailConfigured, sendEmail } from "@/lib/email";
+
+export const runtime = "nodejs";
 
 type Payload = {
   name?: string;
@@ -49,31 +52,27 @@ export async function POST(request: Request) {
 
   const submission = { name, email, phone, reason: reason || "General enquiry", message, receivedAt: new Date().toISOString() };
 
-  // Delivery: set CONTACT_WEBHOOK_URL (e.g. an email service, CRM or Zapier hook)
-  // to forward submissions. Without it, submissions are logged server-side so the
-  // form remains functional in development and self-hosted setups.
   const webhook = process.env.CONTACT_WEBHOOK_URL;
-  if (webhook) {
-    try {
+  try {
+    if (isEmailConfigured()) {
+      await sendEmail({ subject: `Tikobane website: ${submission.reason}`, replyTo: email, text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nReason: ${submission.reason}\nReceived: ${submission.receivedAt}\n\n${message}` });
+    } else if (webhook) {
       const res = await fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ form: "contact", ...submission }),
+        signal: AbortSignal.timeout(15000),
       });
-      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
-    } catch (error) {
-      console.error("[contact] delivery failed", error, submission);
-      return NextResponse.json(
-        {
-          ok: false,
-          message:
-            "We could not send your message just now. Please email or WhatsApp us directly and we will respond.",
-        },
-        { status: 502 },
-      );
+      if (!res.ok) throw new Error("Webhook delivery failed");
+    } else {
+      throw new Error("No delivery method configured.");
     }
-  } else {
-    console.info("[contact] submission received (no CONTACT_WEBHOOK_URL configured)", submission);
+  } catch {
+    console.error("[contact] delivery failed");
+    return NextResponse.json(
+      { ok: false, message: "We could not send your message just now. Please email or WhatsApp us directly and we will respond." },
+      { status: 502 },
+    );
   }
 
   return NextResponse.json({
