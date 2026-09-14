@@ -180,7 +180,7 @@ export default async function StoryPage({
                   Programme
                 </p>
                 <h2 className="mt-2 font-display text-lg text-forest-800">
-                  {programme.emoji} {programme.shortTitle}
+                  {programme.shortTitle}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-ink-500">
                   {programme.summary}

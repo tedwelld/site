@@ -9,7 +9,6 @@ export type Programme = {
   approach: string;
   imageSeed: string;
   image?: string;
-  emoji: string;
 };
 export const programmes: Programme[] = [
   {
@@ -32,7 +31,6 @@ export const programmes: Programme[] = [
       approach:
         "People are more able to become conservation stewards when they have viable economic opportunities.",
       imageSeed: "entrepreneurship-for-conservation",
-      emoji: "🌱",
     },
     image: img.basketMaker,
   },
@@ -56,7 +54,6 @@ export const programmes: Programme[] = [
       approach:
         "Produce → Aggregate → Add Value → Access Markets → Generate Income",
       imageSeed: "sustainable-agriculture",
-      emoji: "🌾",
     },
     image: img.agriculture,
   },
@@ -84,7 +81,6 @@ export const programmes: Programme[] = [
       ],
       approach: "Discover → Learn → Connect → Start → Grow",
       imageSeed: "youth-opportunity",
-      emoji: "☀️",
     },
     image: img.youthLearning,
   },
@@ -109,7 +105,6 @@ export const programmes: Programme[] = [
       approach:
         "People living alongside wildlife are not simply beneficiaries of conservation. They are part of the conservation solution.",
       imageSeed: "human-wildlife-coexistence",
-      emoji: "🐘",
     },
     image: img.coexistence,
   },
@@ -130,7 +125,6 @@ export const programmes: Programme[] = [
       approach:
         "Exploring opportunities for stronger rural livestock businesses.",
       imageSeed: "herding-for-conservation",
-      emoji: "🌿",
     },
     image: img.goats,
   },

@@ -22,10 +22,7 @@ export function ProgrammeCards({ limit }: { limit?: number }) {
               className="h-44"
             />
             <div className="flex flex-1 flex-col p-6">
-              <p aria-hidden="true" className="text-2xl">
-                {programme.emoji}
-              </p>
-              <h3 className="mt-3 font-display text-xl text-forest-800">{programme.shortTitle}</h3>
+              <h3 className="font-display text-xl text-forest-800">{programme.shortTitle}</h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-500">{programme.summary}</p>
               <Link
                 href={`/our-work/${programme.slug}`}
