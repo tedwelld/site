@@ -11,7 +11,7 @@ export function Logo({ dark = false, className }: { dark?: boolean; className?: 
       aria-label={`${site.name} — home`}
     >
       <Image
-        src="/images/tikobane-logo.jpeg"
+        src={site.logo}
         alt="Tikobane Trust logo"
         width={64}
         height={64}

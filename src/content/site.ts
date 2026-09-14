@@ -3,6 +3,9 @@
 export const site = {
   name: "Tikobane Trust",
   shortName: "Tikobane",
+  logo: "/images/tikobane-logo.jpeg",
+  // Update when published site content or photography changes.
+  contentUpdatedAt: "2026-09-14",
   tagline:
     "Creating Opportunity. Strengthening Communities. Conserving Landscapes.",
   description:
