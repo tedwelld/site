@@ -1,0 +1,461 @@
+[
+  {
+    "image": "/images/tikobane/youth-safari.jpg",
+    "original": "213dd0a0-b185-4368-a0b7-85f39f4af743.JPG",
+    "sources": ["folder"],
+    "sha256": "234a51a8c4e152360c4fb1029a1d46304593c33c67a249a4dd27663f00133d30",
+    "width": 930,
+    "height": 1080,
+    "caption": "Youth group in an open safari vehicle"
+  },
+  {
+    "image": "/images/tikobane/meeting-conversations.jpg",
+    "original": "760fbc5d-39fd-48ee-81ab-347e3c1a801d.JPG",
+    "sources": ["folder", "Pictures.msg"],
+    "sha256": "dd9b6f21cc98a6b455442f61eac3d10ea3d675cee5ed0cd21ed091319e472523",
+    "width": 960,
+    "height": 1280,
+    "caption": "Participants talking in a thatched meeting space"
+  },
+  {
+    "image": "/images/tikobane/outdoor-interview.jpg",
+    "original": "8339f6f9-6710-4e26-99b1-cf2044f1eb04.JPG",
+    "sources": ["folder"],
+    "sha256": "31aebe136f7e13ac5c84f9d15907b54ea3be2bafc6b202cffb7bb9943a755afb",
+    "width": 1280,
+    "height": 1280,
+    "caption": "An outdoor interview being filmed beside a thatched building"
+  },
+  {
+    "image": "/images/tikobane/sunflower.jpg",
+    "original": "92cf281a-239c-4ea2-ae60-66f907edf07e.JPG",
+    "sources": ["folder"],
+    "sha256": "dc4dbe00db467cd664fb5cd5fa23e96c2095de291f85831953e4a51dade9f8fd",
+    "width": 720,
+    "height": 1280,
+    "caption": "A sunflower in bloom"
+  },
+  {
+    "image": "/images/tikobane/youth-coexistence.jpg",
+    "original": "9b5642a7-f96f-4f55-86d1-a747cbb38e60.JPG",
+    "sources": ["folder", "Pictures.msg"],
+    "sha256": "6777d1b0183e3d62ffa275b8c1ece6027b5d438ce416c61c5f65b4247ce9b16d",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Young people holding a human-wildlife coexistence banner"
+  },
+  {
+    "image": "/images/tikobane/community-supplies.jpg",
+    "original": "c01c24c7-43e1-4a75-8b0b-63f997a90f59.JPG",
+    "sources": ["folder"],
+    "sha256": "cbf84f812e0b15d2cd22315c78e357908caab90f32f081a1f6f36305c3ec803f",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Community members seated beside packaged supplies"
+  },
+  {
+    "image": "/images/tikobane/youth-group.jpg",
+    "original": "c17650d3-ecd6-4d57-ab69-0b7de1baaec5.JPG",
+    "sources": ["folder"],
+    "sha256": "fdd04088bcee7c680af315e9dd5e58a3a81431545cd8c689f8442caa43cc4c9c",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Youth group standing outside a thatched building"
+  },
+  {
+    "image": "/images/tikobane/visitor-discussion.jpg",
+    "original": "e5190b00-fd7e-4bd5-ae87-f7596b7467c8.JPG",
+    "sources": ["folder"],
+    "sha256": "0bc86d127797f2cc8a89986f1bfa1e3e78e344b7a3f3b40bc59e6bc2f958cb49",
+    "width": 1280,
+    "height": 1280,
+    "caption": "A group discussion outside a thatched building"
+  },
+  {
+    "image": "/images/tikobane/youth-circle.jpg",
+    "original": "93b4a447-427b-4c7a-8050-d4fd64a9ddb1.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "2526c938ff8815766cdcce6fad32e2dbd56f4a008b6380d59b6e021a4395a560",
+    "width": 1280,
+    "height": 960,
+    "caption": "Young people standing together in a circle"
+  },
+  {
+    "image": "/images/tikobane/elephants-grassland.jpg",
+    "original": "f491757b-3255-4a2b-959b-9bf692e3bd19.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "3e305aa3d234ef539139ceb92a19a34369b36357417c5edb0465c194c9c1844a",
+    "width": 810,
+    "height": 1080,
+    "caption": "Elephants gathered on open grassland"
+  },
+  {
+    "image": "/images/tikobane/elephant-observation.jpg",
+    "original": "31def77c-ce46-44f3-96f6-5bd37c3da68f.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "01127a1482c8be1db1b4ac9fd05f65dc4831188fab6176abe70ff242b41ab9e7",
+    "width": 1280,
+    "height": 911,
+    "caption": "A participant watching an elephant from a viewing area"
+  },
+  {
+    "image": "/images/tikobane/broken-tree.jpg",
+    "original": "8618673c-a3eb-4182-8ea9-d9b6e0cc30a9.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "ab0955e62c4b53444a525c10350e4b28e5e6e39a85a19ad805c42c53152ff3cb",
+    "width": 640,
+    "height": 480,
+    "caption": "A tree with broken branches beside a field"
+  },
+  {
+    "image": "/images/tikobane/community-meeting.jpg",
+    "original": "179292e4-0974-4aec-ad49-c7377ba2bb87.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "28d13aba962badba98ff57f8c80cfaca7ed4a46880660d2924ecd3a5684e4201",
+    "width": 1280,
+    "height": 960,
+    "caption": "Community members gathered under an open shelter"
+  },
+  {
+    "image": "/images/tikobane/environmental-litter.jpg",
+    "original": "e289363b-7bc8-47f0-9315-d06c71210482.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "08dd0ab8f984e613f8330dc962e041a32d3176642a8f8b2eb940cc684fb2189a",
+    "width": 1280,
+    "height": 960,
+    "caption": "Discarded litter on open ground"
+  },
+  {
+    "image": "/images/tikobane/indoor-presentation.jpg",
+    "original": "36501a3e-2f28-4ad0-8a65-29ec811009fd.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "ca96a40bf8583863c354bda68a99e36376f83cddab950b88e7e5ac528cf32aed",
+    "width": 1280,
+    "height": 960,
+    "caption": "Participants attending an indoor presentation"
+  },
+  {
+    "image": "/images/tikobane/outdoor-activity.jpg",
+    "original": "b15cbdb1-e9f0-49dd-9356-0e489438ce12.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "02966a061165472b72c2b5e6de761bd7380c4e8344370b1f81c4fe64f209a3eb",
+    "width": 720,
+    "height": 405,
+    "caption": "Children and adults taking part in an outdoor activity"
+  },
+  {
+    "image": "/images/tikobane/grassland-tree.jpg",
+    "original": "c7c74c98-b641-482e-91c2-03a2641eb9e5.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "4e4406d33ddea92bf2f8657e4337a67f9d01917a25e54d5a3db4931431d64456",
+    "width": 1280,
+    "height": 1280,
+    "caption": "A branching tree overlooking open grassland"
+  },
+  {
+    "image": "/images/tikobane/safari-landscape.jpg",
+    "original": "23e368a8-daa7-4936-b129-a067f6012e66.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "69cc735abce31dac862d6b790b90b56fe1e4dd9c3029bdcebdb3454930d4e285",
+    "width": 1080,
+    "height": 1080,
+    "caption": "A safari vehicle crossing open grassland"
+  },
+  {
+    "image": "/images/tikobane/landscape-dusk.jpg",
+    "original": "bea9158f-f41b-4c98-97e7-ee67042e3c47.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "800faba00b97bfd6733dce1fb1969eac14803db6190120504397074fb8817dbb",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Clouds over the landscape at dusk"
+  },
+  {
+    "image": "/images/tikobane/outdoor-learning.jpg",
+    "original": "cb3f3fd6-8094-406c-aed5-7fea9eab0d95.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "1d346493511bcbb48e1c29354f52603112b4f3415a488af1b3df40e5a66cb5e2",
+    "width": 640,
+    "height": 640,
+    "caption": "A group seated in an outdoor discussion circle"
+  },
+  {
+    "image": "/images/tikobane/shared-discovery.jpg",
+    "original": "349d3277-f486-466a-9e05-f5af7facfa79.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "9058ef2b21f8767a949950d729a55b665dff33ee42b135a6e763242f8e16e093",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Participants examining an item together outdoors"
+  },
+  {
+    "image": "/images/tikobane/evening-water.jpg",
+    "original": "74d02fd0-f6a8-49a4-b247-58adf238d489.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "93dc0764da6c2c23b25f15c2eac0a7cca933724bb6e063eaf8f3b91e0e36a7b8",
+    "width": 1280,
+    "height": 1280,
+    "caption": "An orange evening sky over water"
+  },
+  {
+    "image": "/images/tikobane/sunset-tree.jpg",
+    "original": "70847e59-69c2-46de-933c-d8fe2c6707b6.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "545ed2359d1ccaf7c43f80a0c9731b2d9456a6acc5a4c01dd08f4f7221139b0d",
+    "width": 640,
+    "height": 640,
+    "caption": "Sunset over water framed by a tree"
+  },
+  {
+    "image": "/images/tikobane/group-workshop.jpg",
+    "original": "a522a507-5a25-431c-912f-bdc04acd72b4.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "cf60b4814a6056197e88aea403c34e429810c63c4e035ca0c6a41892fcf9efd0",
+    "width": 1600,
+    "height": 1066,
+    "caption": "Participants seated in a circle inside a meeting space"
+  },
+  {
+    "image": "/images/tikobane/basket-weaving.jpg",
+    "original": "064c7be0-d85f-4859-85ce-4665cb721ac5.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "b6d238bc231645eeae60594e75a616ebb4da99d8724300fca5bb762a90b2ce3f",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Hands holding a woven basket and weaving materials"
+  },
+  {
+    "image": "/images/tikobane/coexistence-banner.jpg",
+    "original": "571fe20d-325f-454b-ac17-78c181e5c54c.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "6e28c8544d3ff35f17b615d56d37f51448e22c75549be099681f99b62eff7228",
+    "width": 1280,
+    "height": 1280,
+    "caption": "A group displaying a peaceful coexistence banner"
+  },
+  {
+    "image": "/images/tikobane/youth-visit.jpg",
+    "original": "58a76b4c-095b-4137-a7b9-d650a24bce56.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "ec72b7e0559bbb1f4cc4771a9b0aa980e442e46c23466e2e3dcfa32f06dc1af2",
+    "width": 640,
+    "height": 640,
+    "caption": "Young people visiting an outdoor display beneath trees"
+  },
+  {
+    "image": "/images/tikobane/garden-pool.jpg",
+    "original": "85eedb70-891b-4479-b94d-62e65a7aea62.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "3979326c5ae7415e465871dd82478a38f55311b36a715601a5426a8f17f71981",
+    "width": 640,
+    "height": 480,
+    "caption": "A swimming pool surrounded by trees"
+  },
+  {
+    "image": "/images/tikobane/community-equipment.jpg",
+    "original": "835bc298-49d6-4fff-9ee9-cc7a5466fa18.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "2a33690e137907b1b8fc07cbe3f28432e0266497a5a9fc290a16af7893cc29d9",
+    "width": 1024,
+    "height": 768,
+    "caption": "Community members displaying solar equipment and coexistence materials"
+  },
+  {
+    "image": "/images/tikobane/coexistence-preparation.jpg",
+    "original": "205bc7ae-665f-49b9-a6cc-cf5e2e0a8872.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "0b986b8ab248f4d94c9f8e8cd0ab2d6c3abb31c7db75b135eb04b3643186d972",
+    "width": 1280,
+    "height": 1280,
+    "caption": "Participants preparing materials beneath a coexistence banner"
+  },
+  {
+    "image": "/images/tikobane/field-demonstration.jpg",
+    "original": "e5bb58e7-a08e-4154-b7d7-8364ea3fdf8b.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "6ed2ef497050e947ab66aa3d786b1c952da6da033ebb688316adf9e7b0866000",
+    "width": 640,
+    "height": 640,
+    "caption": "A participant working beside a crop field and suspended bottles"
+  },
+  {
+    "image": "/images/tikobane/crop-boundary.jpg",
+    "original": "9fdc38b9-6cae-41bc-bdf1-a61ec73ce65b.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "9bd98cce10205dfb3c8b9ea5fc288dc30d9c0abccbc40a2ccddff4df02fd116f",
+    "width": 640,
+    "height": 640,
+    "caption": "Bottles suspended along the edge of a crop field"
+  },
+  {
+    "image": "/images/tikobane/basket-maker-visit.jpg",
+    "original": "aefe1834-ac25-4e79-b922-e45ca39cdeb7.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "1c06f4d3024595b54940ee5f518ae2943057991242ff2dd72d278c75422e0cff",
+    "width": 1280,
+    "height": 1280,
+    "caption": "A visitor talking with a basket maker beside her woven pieces"
+  },
+  {
+    "image": "/images/tikobane/basket-maker.jpg",
+    "original": "a4198152-1b9e-446a-a3fc-0b207d9d6b97.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "832cdfbbcfd4c303be30032cb9c27c762ff60bfb0cbe8ea780c7e7e52b6f98a3",
+    "width": 1280,
+    "height": 1280,
+    "caption": "A basket maker sharing her work with a visitor"
+  },
+  {
+    "image": "/images/tikobane/sunflower-field.jpg",
+    "original": "3cb4360b-284f-4d00-9bbc-c9bec6c7585c.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "c4cd65dd85b7dc77d7086625d5ed417458f1749d8227f4e928204282886d4b71",
+    "width": 1280,
+    "height": 720,
+    "caption": "A field of sunflowers beneath a blue sky"
+  },
+  {
+    "image": "/images/tikobane/discussion-participants.jpg",
+    "original": "891a9f19-0eb0-4b3c-960e-176dbca336de.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "b5720fbde8f872a5a550c47dea26634fa6d0ec8bdb01c88e2d937b59ea749c10",
+    "width": 960,
+    "height": 1280,
+    "caption": "Participants listening during an outdoor discussion"
+  },
+  {
+    "image": "/images/tikobane/grain-crop.jpg",
+    "original": "9a50f6e5-c72c-4126-aa35-40167fe212d6.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "616e3d2ff22ca3aac42d89a0cc1d0170508d4595b3293ea1b6c122da80caae5c",
+    "width": 720,
+    "height": 1280,
+    "caption": "A close view of a grain seed head"
+  },
+  {
+    "image": "/images/tikobane/facilitated-session.jpg",
+    "original": "a739251e-b3cf-4119-8e96-408d9f677d1f.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "d2fa0e1247434f18f08858c3f13e0a6625122d2dd1b53d1b0f3cf5c145d33e8b",
+    "width": 1280,
+    "height": 960,
+    "caption": "A facilitator addressing participants under a shelter"
+  },
+  {
+    "image": "/images/tikobane/community-speaker.jpg",
+    "original": "0e273eeb-e0a1-4ddc-8cc4-e189c3c7a045.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "32cb1e58a46c9963a19da8093b3927e6681786e726a3689a386322f497b18588",
+    "width": 1280,
+    "height": 960,
+    "caption": "A speaker leading a community discussion"
+  },
+  {
+    "image": "/images/tikobane/young-crops.jpg",
+    "original": "fb3dd8e6-5084-40f7-9ee4-c352a3adca3a.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "26a6705a994d11d4e610793498a4903fb33f8e7fcab8c8e279f4781406a6393e",
+    "width": 1280,
+    "height": 960,
+    "caption": "Rows of young crops beneath a cloudy sky"
+  },
+  {
+    "image": "/images/tikobane/maize-field.jpg",
+    "original": "8ddd161a-58a8-4f9f-8dcb-2c29e486b520.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "fccb43eb284b5dfd4ca336307508acbd77b85603303aaf304c18b05a10d06de3",
+    "width": 1280,
+    "height": 960,
+    "caption": "A maize field under gathering clouds"
+  },
+  {
+    "image": "/images/tikobane/produce-event.jpg",
+    "original": "76223b0b-3e09-430f-a78a-3923fc43d6e8.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "8b673b54a6776a23ba2615084ea677b59c4dabe7337186b173ca5c000f17b3a0",
+    "width": 1280,
+    "height": 960,
+    "caption": "Participants displaying fruit and produce at an event"
+  },
+  {
+    "image": "/images/tikobane/crop-rows.jpg",
+    "original": "d7e2a440-015c-4b7d-a7cc-39d3eb2a508c.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "ccb3e76e867b8dc5bcfd78ee2b0f1164697c913a58286aa3dd792feb3e6573fb",
+    "width": 1280,
+    "height": 960,
+    "caption": "Evenly spaced crop rows across a cultivated field"
+  },
+  {
+    "image": "/images/tikobane/farmer-cattle.jpg",
+    "original": "183b9e55-240d-4dee-a434-4b6b2ec0a339.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "f7ce8bd6db7e79e3f24af0a0dd86857864dbfa78fb64c07b6d957bdffac0bc44",
+    "width": 960,
+    "height": 1280,
+    "caption": "A farmer working a field with cattle"
+  },
+  {
+    "image": "/images/tikobane/community-gathering.jpg",
+    "original": "4b2b6ff8-5908-49d7-a34d-c2083fc9ea66.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "1128cb8e778c0087b552dfc3a11395f2f4b196c1fc4772415c3c0fda0924a29a",
+    "width": 1280,
+    "height": 960,
+    "caption": "Community members gathered with programme banners"
+  },
+  {
+    "image": "/images/tikobane/livestock-session.jpg",
+    "original": "0dd93b9f-d979-448d-bc48-58d6ebee8418.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "7dc3e4de83ee266307a0b9db1b529167e9d4c11ecb9270562190b4f905b84ab1",
+    "width": 640,
+    "height": 480,
+    "caption": "A group gathered around a goat in a livestock enclosure"
+  },
+  {
+    "image": "/images/tikobane/produce-display.jpg",
+    "original": "718c7459-c38e-4d3f-9dcf-556cf0b4e511.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "25af4a1aa873765eb89ef6b2f3ba4ce17d61b94ef0ec38c170845f58a935e339",
+    "width": 1280,
+    "height": 960,
+    "caption": "Two participants behind a display of fruit, roots and seeds"
+  },
+  {
+    "image": "/images/tikobane/cattle-enclosure.jpg",
+    "original": "e325ac9a-c08d-4c46-b76f-12d2962d30ea.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "9a8ab773bfb8793fe0ad963182bf8928752f1b7290552a0734cbd1d8d5c39d9b",
+    "width": 1280,
+    "height": 960,
+    "caption": "Two participants beside a cattle enclosure and water trough"
+  },
+  {
+    "image": "/images/tikobane/tree-presentation.jpg",
+    "original": "5a33740f-088e-4e65-9f64-959faa593881.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "1656ce9c662001fe8c80aa852b1a3f7b4cd636f9254379c1331a5ae2b81e1285",
+    "width": 640,
+    "height": 480,
+    "caption": "An outdoor presentation beneath a leafy tree"
+  },
+  {
+    "image": "/images/tikobane/outdoor-session.jpg",
+    "original": "bbc709cb-9a51-40c8-8a91-6b2e953113d4.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "8420b40b5e49fd5de4c3b03b2f48e54902f79c228ef911ab4db0335d99a1095a",
+    "width": 1280,
+    "height": 960,
+    "caption": "Community members attending a session beneath a tree"
+  },
+  {
+    "image": "/images/tikobane/goat-enterprise.jpg",
+    "original": "5399c193-6ef0-420d-a62d-1433b43f9cdb.JPG",
+    "sources": ["Pictures.msg"],
+    "sha256": "397953347887f31fc496b9774bc75de3ded16aba182a8f836691d193352ada86",
+    "width": 640,
+    "height": 480,
+    "caption": "Participants handling goats in a livestock enclosure"
+  }
+]

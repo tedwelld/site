@@ -8,11 +8,11 @@ import { site } from "@/content/site";
 const reasons = [
   "General enquiry",
   "Donate or fundraise",
-  "Volunteer",
+  "Volunteer or mentor",
+  "Visit Hwange",
+  "Sponsor an initiative",
   "Partnership",
   "Media & press",
-  "Report an animal welfare concern",
-  "Safeguarding concern",
   "Other",
 ];
 
@@ -22,7 +22,9 @@ const fieldClass =
 type Errors = Record<string, string>;
 
 export function ContactForm({ defaultReason }: { defaultReason?: string }) {
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
+    "idle",
+  );
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Errors>({});
 
@@ -47,7 +49,11 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
           consent: data.get("consent") === "on",
         }),
       });
-      const payload = (await res.json()) as { ok: boolean; message: string; errors?: Errors };
+      const payload = (await res.json()) as {
+        ok: boolean;
+        message: string;
+        errors?: Errors;
+      };
       if (payload.ok) {
         setStatus("done");
         setMessage(payload.message);
@@ -59,7 +65,9 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
       }
     } catch {
       setStatus("error");
-      setMessage("We could not send your message. Please email or WhatsApp us directly.");
+      setMessage(
+        "We could not send your message. Please email or WhatsApp us directly.",
+      );
     }
   }
 
@@ -69,16 +77,26 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
         <span className="grid size-12 place-items-center rounded-full bg-forest-700 text-sand-50">
           <Check width={24} height={24} />
         </span>
-        <h3 className="mt-5 font-display text-2xl text-forest-800">Message sent</h3>
+        <h3 className="mt-5 font-display text-2xl text-forest-800">
+          Message sent
+        </h3>
         <p className="mt-3 text-sm leading-relaxed text-ink-700">{message}</p>
         <p className="mt-4 text-sm text-ink-500">
           Need a faster response?{" "}
-          <a href={site.contact.whatsappHref} className="font-semibold text-forest-700 underline">
+          <a
+            href={site.contact.whatsappHref}
+            className="font-semibold text-forest-700 underline"
+          >
             Message us on WhatsApp
           </a>
           .
         </p>
-        <ActionButton variant="secondary" size="md" className="mt-6" onClick={() => setStatus("idle")}>
+        <ActionButton
+          variant="secondary"
+          size="md"
+          className="mt-6"
+          onClick={() => setStatus("idle")}
+        >
           Send another message
         </ActionButton>
       </div>
@@ -86,24 +104,60 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-3xl border border-forest-900/10 bg-white p-6 shadow-soft sm:p-8">
-      <h3 className="font-display text-2xl text-forest-800">Send us a message</h3>
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="rounded-3xl border border-forest-900/10 bg-white p-6 shadow-soft sm:p-8"
+    >
+      <h3 className="font-display text-2xl text-forest-800">
+        Send us a message
+      </h3>
       <p className="mt-2 text-sm text-ink-500">
         Fields marked with <span aria-hidden="true">*</span> are required.
       </p>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <Field id="name" label="Name" required error={errors.name}>
-          <input id="name" name="name" type="text" autoComplete="name" required className={fieldClass} />
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            required
+            className={fieldClass}
+          />
         </Field>
         <Field id="email" label="Email" required error={errors.email}>
-          <input id="email" name="email" type="email" autoComplete="email" required className={fieldClass} />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            className={fieldClass}
+          />
         </Field>
-        <Field id="phone" label="Phone or WhatsApp" hint="Optional" error={errors.phone}>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" className={fieldClass} />
+        <Field
+          id="phone"
+          label="Phone or WhatsApp"
+          hint="Optional"
+          error={errors.phone}
+        >
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            className={fieldClass}
+          />
         </Field>
         <Field id="reason" label="Reason for contacting" error={errors.reason}>
-          <select id="reason" name="reason" defaultValue={defaultReason ?? reasons[0]} className={fieldClass}>
+          <select
+            id="reason"
+            name="reason"
+            defaultValue={defaultReason ?? reasons[0]}
+            className={fieldClass}
+          >
             {reasons.map((r) => (
               <option key={r} value={r}>
                 {r}
@@ -113,13 +167,22 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
         </Field>
         <div className="sm:col-span-2">
           <Field id="message" label="Message" required error={errors.message}>
-            <textarea id="message" name="message" rows={6} required className={fieldClass} />
+            <textarea
+              id="message"
+              name="message"
+              rows={6}
+              required
+              className={fieldClass}
+            />
           </Field>
         </div>
       </div>
 
       <div className="mt-5">
-        <label htmlFor="consent" className="flex items-start gap-3 text-sm text-ink-700">
+        <label
+          htmlFor="consent"
+          className="flex items-start gap-3 text-sm text-ink-700"
+        >
           <input
             id="consent"
             name="consent"
@@ -127,12 +190,14 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
             className="mt-0.5 size-4 rounded border-forest-900/25 text-forest-700"
           />
           <span>
-            I agree that Tikobane Trust may use these details to respond to my message.{" "}
-            <span aria-hidden="true">*</span>
+            I agree that Tikobane Trust may use these details to respond to my
+            message. <span aria-hidden="true">*</span>
           </span>
         </label>
         {errors.consent ? (
-          <p className="mt-1.5 text-xs font-medium text-gold-700">{errors.consent}</p>
+          <p className="mt-1.5 text-xs font-medium text-gold-700">
+            {errors.consent}
+          </p>
         ) : null}
       </div>
 
@@ -140,7 +205,10 @@ export function ContactForm({ defaultReason }: { defaultReason?: string }) {
         <ActionButton type="submit" size="lg" disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </ActionButton>
-        <p role={status === "error" ? "alert" : "status"} className="text-sm text-gold-700">
+        <p
+          role={status === "error" ? "alert" : "status"}
+          className="text-sm text-gold-700"
+        >
           {status === "error" ? message : null}
         </p>
       </div>
@@ -165,15 +233,22 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="flex items-baseline justify-between gap-2 text-sm font-semibold text-forest-800">
+      <label
+        htmlFor={id}
+        className="flex items-baseline justify-between gap-2 text-sm font-semibold text-forest-800"
+      >
         <span>
           {label}
           {required ? <span aria-hidden="true"> *</span> : null}
         </span>
-        {hint ? <span className="text-xs font-normal text-ink-500">{hint}</span> : null}
+        {hint ? (
+          <span className="text-xs font-normal text-ink-500">{hint}</span>
+        ) : null}
       </label>
       <div className="mt-2">{children}</div>
-      {error ? <p className="mt-1.5 text-xs font-medium text-gold-700">{error}</p> : null}
+      {error ? (
+        <p className="mt-1.5 text-xs font-medium text-gold-700">{error}</p>
+      ) : null}
     </div>
   );
 }

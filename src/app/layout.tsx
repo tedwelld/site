@@ -20,7 +20,7 @@ const body = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const title = `${site.name} | Community Development & Animal Welfare in Zimbabwe`;
+const title = `${site.name} | Rural Opportunity & Community-led Conservation`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Dete Zimbabwe",
     "Hwange",
     "community development Zimbabwe",
-    "animal welfare Zimbabwe",
+    "rural entrepreneurship Zimbabwe",
     "human wildlife conflict Zimbabwe",
     "youth development Zimbabwe",
     "conservation communities Zimbabwe",
@@ -61,7 +61,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   category: "Nonprofit",
 };
@@ -76,6 +81,7 @@ const organisationSchema = {
   "@type": "NGO",
   name: site.name,
   alternateName: site.shortName,
+  logo: `${site.url}/images/tikobane-logo.jpeg`,
   url: site.url,
   description: site.description,
   foundingDate: String(site.founded),
@@ -96,8 +102,8 @@ const organisationSchema = {
   },
   areaServed: "Dete, Hwange District, Matabeleland North, Zimbabwe",
   knowsAbout: [
-    "Animal welfare",
-    "Sustainable community development",
+    "Entrepreneurship for conservation",
+    "Sustainable agriculture",
     "Youth development",
     "Skills training",
     "Human-wildlife coexistence",
@@ -105,7 +111,11 @@ const organisationSchema = {
   sameAs: site.socials.map((s) => s.href),
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en-ZW" className={`${display.variable} ${body.variable}`}>
       <body className="flex min-h-dvh flex-col antialiased">
@@ -125,7 +135,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MobileBottomNav />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organisationSchema),
+          }}
         />
       </body>
     </html>

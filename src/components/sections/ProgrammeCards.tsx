@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { credits } from "@/content/credits";
 import { Photo } from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRight } from "@/components/ui/Icons";
@@ -15,7 +16,7 @@ export function ProgrammeCards({ limit }: { limit?: number }) {
             <Photo
               src={programme.image}
               seed={programme.imageSeed}
-              alt={programme.title}
+              alt={credits.find(credit => credit.file === programme.image)?.subject ?? programme.title}
               rounded={false}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="h-44"

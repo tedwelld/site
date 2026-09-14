@@ -9,19 +9,14 @@ import { cn } from "@/lib/utils";
 
 const presets = [10, 25, 50, 100];
 
-const impactHints: Record<number, string> = {
-  10: "Contributes to learning materials for a Boys & Girls Club session.",
-  25: "Helps cover veterinary consumables for a community outreach day.",
-  50: "Supports a young person's place on a skills training course.",
-  100: "Contributes towards a predator-proof livestock enclosure.",
-};
-
 export function DonateWidget() {
   const [frequency, setFrequency] = useState<"once" | "monthly">("once");
   const [selected, setSelected] = useState<number | "custom">(25);
   const [custom, setCustom] = useState("");
   const [designation, setDesignation] = useState("general");
-  const [status, setStatus] = useState<"idle" | "sending" | "offline" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "offline" | "error"
+  >("idle");
   const [message, setMessage] = useState("");
 
   const amount = selected === "custom" ? Number(custom) : selected;
@@ -51,14 +46,18 @@ export function DonateWidget() {
       if (data.ok && data.mode === "offline") {
         setStatus("offline");
         setMessage(data.message ?? "");
-        document.getElementById("direct-giving")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document
+          .getElementById("direct-giving")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
         return;
       }
       setStatus("error");
       setMessage(data.message ?? "Something went wrong.");
     } catch {
       setStatus("error");
-      setMessage("We could not start your donation. Please use a direct giving option below.");
+      setMessage(
+        "We could not start your donation. Please use a direct giving option below.",
+      );
     }
   }
 
@@ -71,10 +70,14 @@ export function DonateWidget() {
       <h2 id="donate-heading" className="font-display text-2xl text-forest-800">
         Support Tikobane
       </h2>
-      <p className="mt-2 text-sm text-ink-500">Amounts shown in US dollars (USD).</p>
+      <p className="mt-2 text-sm text-ink-500">
+        Amounts shown in US dollars (USD).
+      </p>
 
       <fieldset className="mt-6">
-        <legend className="text-sm font-semibold text-forest-800">How often?</legend>
+        <legend className="text-sm font-semibold text-forest-800">
+          How often?
+        </legend>
         <div className="mt-3 grid grid-cols-2 gap-2 rounded-full bg-sand-100 p-1.5">
           {(["once", "monthly"] as const).map((f) => (
             <button
@@ -84,7 +87,9 @@ export function DonateWidget() {
               onClick={() => setFrequency(f)}
               className={cn(
                 "rounded-full px-4 py-2.5 text-sm font-semibold transition",
-                frequency === f ? "bg-forest-700 text-sand-50 shadow-soft" : "text-forest-800 hover:bg-sand-200",
+                frequency === f
+                  ? "bg-forest-700 text-sand-50 shadow-soft"
+                  : "text-forest-800 hover:bg-sand-200",
               )}
             >
               {f === "once" ? "One-off gift" : "Monthly"}
@@ -94,7 +99,9 @@ export function DonateWidget() {
       </fieldset>
 
       <fieldset className="mt-7">
-        <legend className="text-sm font-semibold text-forest-800">Choose an amount</legend>
+        <legend className="text-sm font-semibold text-forest-800">
+          Choose an amount
+        </legend>
         <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
           {presets.map((value) => (
             <button
@@ -115,7 +122,10 @@ export function DonateWidget() {
         </div>
 
         <div className="mt-3">
-          <label htmlFor="custom-amount" className="text-sm font-semibold text-forest-800">
+          <label
+            htmlFor="custom-amount"
+            className="text-sm font-semibold text-forest-800"
+          >
             Or another amount
           </label>
           <div className="mt-2 flex items-center gap-2 rounded-xl border border-forest-900/12 bg-white px-4 focus-within:border-forest-500">
@@ -137,17 +147,13 @@ export function DonateWidget() {
             />
           </div>
         </div>
-
-        {selected !== "custom" && impactHints[selected] ? (
-          <p className="mt-3 rounded-xl bg-sand-100 px-4 py-3 text-xs leading-relaxed text-ink-700">
-            {impactHints[selected]}{" "}
-            <span className="text-ink-500">Illustrative — confirmed costings are published in our annual reporting.</span>
-          </p>
-        ) : null}
       </fieldset>
 
       <div className="mt-7">
-        <label htmlFor="designation" className="text-sm font-semibold text-forest-800">
+        <label
+          htmlFor="designation"
+          className="text-sm font-semibold text-forest-800"
+        >
           Direct my gift to
         </label>
         <select
@@ -165,7 +171,13 @@ export function DonateWidget() {
         </select>
       </div>
 
-      <ActionButton type="submit" variant="donate" size="lg" className="mt-7 w-full" disabled={!amountValid || status === "sending"}>
+      <ActionButton
+        type="submit"
+        variant="donate"
+        size="lg"
+        className="mt-7 w-full"
+        disabled={!amountValid || status === "sending"}
+      >
         <Heart />
         {status === "sending"
           ? "Preparing…"
@@ -173,18 +185,27 @@ export function DonateWidget() {
       </ActionButton>
 
       {!amountValid ? (
-        <p className="mt-3 text-xs text-gold-700">Please enter an amount of $1 or more.</p>
+        <p className="mt-3 text-xs text-gold-700">
+          Please enter an amount of $1 or more.
+        </p>
       ) : null}
 
       {status === "offline" || status === "error" ? (
-        <p role="alert" className="mt-4 rounded-xl bg-gold-300/25 px-4 py-3 text-sm text-earth-800">
+        <p
+          role="alert"
+          className="mt-4 rounded-xl bg-gold-300/25 px-4 py-3 text-sm text-earth-800"
+        >
           {message}
         </p>
       ) : null}
 
       <p className="mt-5 text-xs leading-relaxed text-ink-500">
-        Prefer to give directly? Use the mobile money, bank or in-person options below, or contact us on{" "}
-        <a href={site.contact.whatsappHref} className="font-semibold text-forest-700 underline">
+        Prefer to give directly? Contact us to arrange your donation by email or
+        on{" "}
+        <a
+          href={site.contact.whatsappHref}
+          className="font-semibold text-forest-700 underline"
+        >
           WhatsApp
         </a>
         .

@@ -2,12 +2,11 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { Mail, Phone, Pin, SocialIconGlyph } from "@/components/ui/Icons";
-import { footerPolicyLinks, navigation, site } from "@/content/site";
+import { navigation, site } from "@/content/site";
 import { programmes } from "@/content/programmes";
 
 const exploreLinks = [
   { label: "About Tikobane", href: "/about" },
-  { label: "Our Team", href: "/about/team" },
   { label: "Our Impact", href: "/impact" },
   { label: "Stories & News", href: "/stories" },
   { label: "Gallery", href: "/gallery" },
@@ -16,17 +15,20 @@ const exploreLinks = [
 ];
 
 export function Footer() {
-  const involved = navigation.find((n) => n.label === "Get Involved")?.children ?? [];
+  const involved =
+    navigation.find((n) => n.label === "Get Involved")?.children ?? [];
 
   return (
     <footer className="bg-forest-900 text-sand-200/80">
       <div className="border-b border-sand-50/10">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
-            <h2 className="font-display text-2xl text-sand-50">Follow our work</h2>
+            <h2 className="font-display text-2xl text-sand-50">
+              Follow our work
+            </h2>
             <p className="mt-3 max-w-md text-sm leading-relaxed">
-              Occasional updates from Dete — programme news, community stories and ways to help. No more than
-              one email a month, and we never share your address.
+              Occasional updates from Dete — programme news, community stories
+              and ways to help.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {site.socials.map((s) => (
@@ -61,7 +63,10 @@ export function Footer() {
           <ul className="mt-4 space-y-2.5">
             {programmes.map((p) => (
               <li key={p.slug}>
-                <Link href={`/our-work/${p.slug}`} className="transition hover:text-sand-50">
+                <Link
+                  href={`/our-work/${p.slug}`}
+                  className="transition hover:text-sand-50"
+                >
                   {p.shortTitle}
                 </Link>
               </li>
@@ -80,7 +85,9 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <h3 className="mt-8 font-display text-base text-sand-50">Get Involved</h3>
+          <h3 className="mt-8 font-display text-base text-sand-50">
+            Get Involved
+          </h3>
           <ul className="mt-4 space-y-2.5">
             {involved.map((l) => (
               <li key={l.href}>
@@ -96,32 +103,40 @@ export function Footer() {
           <h3 className="font-display text-base text-sand-50">Contact</h3>
           <address className="mt-4 space-y-3 not-italic">
             <p className="flex gap-3">
-              <Pin className="mt-0.5 shrink-0 text-gold-400" width={18} height={18} />
+              <Pin
+                className="mt-0.5 shrink-0 text-gold-400"
+                width={18}
+                height={18}
+              />
               <span>{site.contact.addressLines.join(", ")}</span>
             </p>
             <p className="flex gap-3">
-              <Phone className="mt-0.5 shrink-0 text-gold-400" width={18} height={18} />
-              <a href={site.contact.phoneHref} className="transition hover:text-sand-50">
+              <Phone
+                className="mt-0.5 shrink-0 text-gold-400"
+                width={18}
+                height={18}
+              />
+              <a
+                href={site.contact.phoneHref}
+                className="transition hover:text-sand-50"
+              >
                 {site.contact.phone}
               </a>
             </p>
             <p className="flex gap-3">
-              <Mail className="mt-0.5 shrink-0 text-gold-400" width={18} height={18} />
-              <a href={site.contact.emailHref} className="break-all transition hover:text-sand-50">
+              <Mail
+                className="mt-0.5 shrink-0 text-gold-400"
+                width={18}
+                height={18}
+              />
+              <a
+                href={site.contact.emailHref}
+                className="break-all transition hover:text-sand-50"
+              >
                 {site.contact.email}
               </a>
             </p>
           </address>
-          <h3 className="mt-8 font-display text-base text-sand-50">Policies</h3>
-          <ul className="mt-4 space-y-2.5">
-            {footerPolicyLinks.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="transition hover:text-sand-50">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
@@ -131,9 +146,6 @@ export function Footer() {
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/transparency" className="transition hover:text-sand-50">
-              Transparency
-            </Link>
             <Link href="/contact" className="transition hover:text-sand-50">
               Contact
             </Link>

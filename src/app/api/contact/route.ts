@@ -15,11 +15,11 @@ type Payload = {
 const reasons = [
   "General enquiry",
   "Donate or fundraise",
-  "Volunteer",
+  "Volunteer or mentor",
+  "Visit Hwange",
+  "Sponsor an initiative",
   "Partnership",
   "Media & press",
-  "Report an animal welfare concern",
-  "Safeguarding concern",
   "Other",
 ];
 
@@ -30,7 +30,10 @@ export async function POST(request: Request) {
   try {
     body = (await request.json()) as Payload;
   } catch {
-    return NextResponse.json({ ok: false, message: "Invalid request." }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, message: "Invalid request." },
+      { status: 400 },
+    );
   }
 
   const name = body.name?.trim() ?? "";
@@ -41,21 +44,39 @@ export async function POST(request: Request) {
 
   const errors: Record<string, string> = {};
   if (name.length < 2) errors.name = "Please tell us your name.";
-  if (!emailPattern.test(email)) errors.email = "Please enter a valid email address.";
-  if (reason && !reasons.includes(reason)) errors.reason = "Please choose a reason from the list.";
-  if (message.length < 10) errors.message = "Please give us a little more detail (at least 10 characters).";
+  if (!emailPattern.test(email))
+    errors.email = "Please enter a valid email address.";
+  if (reason && !reasons.includes(reason))
+    errors.reason = "Please choose a reason from the list.";
+  if (message.length < 10)
+    errors.message =
+      "Please give us a little more detail (at least 10 characters).";
   if (!body.consent) errors.consent = "Please confirm we may reply to you.";
 
   if (Object.keys(errors).length > 0) {
-    return NextResponse.json({ ok: false, errors, message: "Please check the highlighted fields." }, { status: 422 });
+    return NextResponse.json(
+      { ok: false, errors, message: "Please check the highlighted fields." },
+      { status: 422 },
+    );
   }
 
-  const submission = { name, email, phone, reason: reason || "General enquiry", message, receivedAt: new Date().toISOString() };
+  const submission = {
+    name,
+    email,
+    phone,
+    reason: reason || "General enquiry",
+    message,
+    receivedAt: new Date().toISOString(),
+  };
 
   const webhook = process.env.CONTACT_WEBHOOK_URL;
   try {
     if (isEmailConfigured()) {
-      await sendEmail({ subject: `Tikobane website: ${submission.reason}`, replyTo: email, text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nReason: ${submission.reason}\nReceived: ${submission.receivedAt}\n\n${message}` });
+      await sendEmail({
+        subject: `Tikobane website: ${submission.reason}`,
+        replyTo: email,
+        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nReason: ${submission.reason}\nReceived: ${submission.receivedAt}\n\n${message}`,
+      });
     } else if (webhook) {
       const res = await fetch(webhook, {
         method: "POST",
@@ -70,13 +91,18 @@ export async function POST(request: Request) {
   } catch {
     console.error("[contact] delivery failed");
     return NextResponse.json(
-      { ok: false, message: "We could not send your message just now. Please email or WhatsApp us directly and we will respond." },
+      {
+        ok: false,
+        message:
+          "We could not send your message just now. Please email or WhatsApp us directly and we will respond.",
+      },
       { status: 502 },
     );
   }
 
   return NextResponse.json({
     ok: true,
-    message: "Thank you — your message has reached us. We usually reply within two working days.",
+    message:
+      "Thank you — your message has reached us. We will respond to your enquiry.",
   });
 }

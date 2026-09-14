@@ -7,12 +7,12 @@ export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 export const alt = site.name;
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
   return new ImageResponse(
     (
       <div style={{ display: "flex", width: "100%", height: "100%" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoMarkDataUri({ radius: 0 })} width={180} height={180} alt="" />
+        <img src={await logoMarkDataUri()} width={180} height={180} alt="" />
       </div>
     ),
     size,

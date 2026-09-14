@@ -14,7 +14,9 @@ export const metadata: Metadata = {
 };
 
 const { latitude: lat, longitude: lon } = site.where;
-const bbox = [lon - 0.06, lat - 0.05, lon + 0.06, lat + 0.05].map((n) => n.toFixed(4)).join("%2C");
+const bbox = [lon - 0.06, lat - 0.05, lon + 0.06, lat + 0.05]
+  .map((n) => n.toFixed(4))
+  .join("%2C");
 const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lon}`;
 
 export default function ContactPage() {
@@ -22,11 +24,11 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Get in touch"
-        lead="Whether you want to support our work, report an animal welfare concern, discuss a partnership or simply ask a question, we would like to hear from you."
+        title="Let’s create opportunity together."
+        lead="Working with rural communities living alongside wildlife, particularly around Hwange National Park and surrounding landscapes. Contact us about support, partnerships, mentorship or a community experience."
         crumbs={[{ label: "Contact" }]}
         seed="contact-hero"
-        image={img.borehole}
+        image={img.communityMeeting}
       />
 
       <Container className="py-16 sm:py-20">
@@ -40,7 +42,9 @@ export default function ContactPage() {
             <span className="grid size-11 place-items-center rounded-full bg-forest-50 text-forest-700 transition group-hover:bg-gold-500 group-hover:text-forest-900">
               <Pin />
             </span>
-            <h2 className="mt-4 font-display text-xl text-forest-800">Visit us</h2>
+            <h2 className="mt-4 font-display text-xl text-forest-800">
+              Visit us
+            </h2>
             <address className="mt-3 space-y-0.5 text-sm not-italic leading-relaxed text-ink-500">
               {site.contact.addressLines.map((line) => (
                 <span key={line} className="block">
@@ -49,7 +53,8 @@ export default function ContactPage() {
               ))}
             </address>
             <p className="mt-3 text-xs text-ink-500">
-              Please contact us before visiting so someone is available to receive you.
+              Please contact us before visiting so someone is available to
+              receive you.
             </p>
           </a>
 
@@ -57,12 +62,17 @@ export default function ContactPage() {
             <span className="grid size-11 place-items-center rounded-full bg-forest-50 text-forest-700">
               <Phone />
             </span>
-            <h2 className="mt-4 font-display text-xl text-forest-800">Call or WhatsApp</h2>
+            <h2 className="mt-4 font-display text-xl text-forest-800">
+              Call or WhatsApp
+            </h2>
             <p className="mt-3 text-sm leading-relaxed text-ink-500">
-              Office hours, Monday to Friday. WhatsApp is usually the fastest way to reach us.
+              Call or send us a message to discuss your enquiry.
             </p>
             <div className="mt-4 space-y-2 text-sm">
-              <a href={site.contact.phoneHref} className="block font-semibold text-forest-700 underline">
+              <a
+                href={site.contact.phoneHref}
+                className="block font-semibold text-forest-700 underline"
+              >
                 {site.contact.phone}
               </a>
               <a
@@ -83,7 +93,7 @@ export default function ContactPage() {
             </span>
             <h2 className="mt-4 font-display text-xl text-forest-800">Email</h2>
             <p className="mt-3 text-sm leading-relaxed text-ink-500">
-              We aim to reply to all email within two working days.
+              Send us your questions or ideas for working together.
             </p>
             <a
               href={site.contact.emailHref}
@@ -123,19 +133,6 @@ export default function ContactPage() {
                 />
               </div>
             </div>
-
-            <div className="rounded-3xl bg-sand-100 p-7">
-              <h2 className="font-display text-xl text-forest-800">Reporting a concern</h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink-700">
-                If you need to report an animal welfare concern, choose that reason in the form and give us the
-                location and as much detail as you can.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-700">
-                Safeguarding concerns involving a child or vulnerable adult are treated as urgent and handled
-                confidentially under our safeguarding policy. If someone is in immediate danger, please contact
-                local authorities first, then tell us.
-              </p>
-            </div>
           </div>
         </div>
       </Container>
@@ -146,7 +143,7 @@ export default function ContactPage() {
           align="center"
           eyebrow="Registered in Zimbabwe"
           title={`${site.name} · Reg No. ${site.registrationNumber}`}
-          lead="Established 2018. Governed by an independent board of trustees, working in Dete, Hwange district, Matabeleland North."
+          lead="Based in Dete, Hwange District, Zimbabwe."
         />
       </Section>
     </>

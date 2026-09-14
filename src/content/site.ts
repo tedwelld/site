@@ -1,16 +1,12 @@
-/**
- * Central organisation profile.
- *
- * Values marked NEEDS-CONFIRMATION are placeholders drawn from the redesign
- * blueprint and must be verified with Tikobane Trust before going live.
- */
+/** Organisation profile; editorial content aligned with tikobane.docx. */
 
 export const site = {
   name: "Tikobane Trust",
   shortName: "Tikobane",
-  tagline: "Empowering Communities. Protecting Animals. Building Coexistence.",
+  tagline:
+    "Creating Opportunity. Strengthening Communities. Conserving Landscapes.",
   description:
-    "Tikobane Trust works with communities in and around Dete, Zimbabwe, to improve livelihoods, promote animal welfare, empower young people and create sustainable solutions for human-wildlife coexistence.",
+    "Tikobane Trust is a Zimbabwean community-led organisation working with rural communities living alongside wildlife to create sustainable opportunities, strengthen livelihoods and build peaceful coexistence between people and wildlife.",
   registrationNumber: "239/2018",
   founded: 2018,
   /**
@@ -21,10 +17,17 @@ export const site = {
    * a non-www value here produces a sitemap full of URLs that redirect, which
    * Google Search Console rejects. No trailing slash.
    */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tikobanezimbabwe.org").replace(/\/+$/, ""),
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tikobanezimbabwe.org"
+  ).replace(/\/+$/, ""),
   locale: "en_ZW",
   contact: {
-    addressLines: ["253 Soweto Township", "Dete", "Matabeleland North", "Zimbabwe"],
+    addressLines: [
+      "253 Soweto Township",
+      "Dete",
+      "Matabeleland North",
+      "Zimbabwe",
+    ],
     phone: "+263 783 297 571",
     phoneHref: "tel:+263783297571",
     // NEEDS-CONFIRMATION: confirm the official WhatsApp business number.
@@ -39,15 +42,12 @@ export const site = {
     longitude: 26.8667,
   },
   socials: [
-    { label: "Facebook", href: "https://www.facebook.com/", icon: "facebook" },
-    { label: "Instagram", href: "https://www.instagram.com/", icon: "instagram" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/", icon: "linkedin" },
-    { label: "YouTube", href: "https://www.youtube.com/", icon: "youtube" },
     { label: "WhatsApp", href: "https://wa.me/263783297571", icon: "whatsapp" },
   ],
 } as const;
 
-export type SocialIcon = (typeof site.socials)[number]["icon"];
+export type SocialIcon =
+  "facebook" | "instagram" | "linkedin" | "youtube" | "whatsapp";
 
 export type NavItem = {
   label: string;
@@ -57,49 +57,95 @@ export type NavItem = {
 };
 
 export const navigation: NavItem[] = [
-  { label: "Home", href: "/" },
+  {
+    label: "Home",
+    href: "/",
+  },
   {
     label: "About",
     href: "/about",
     children: [
-      { label: "Who We Are", href: "/about", description: "Our mission, vision, approach and values." },
-      { label: "Our Story", href: "/about#our-story", description: "Milestones since 2018." },
-      { label: "Our Team", href: "/about/team", description: "The people behind the work." },
-      { label: "Partners", href: "/about/partners", description: "Who we collaborate with." },
+      {
+        label: "Who We Are",
+        href: "/about",
+      },
+      {
+        label: "Our Approach",
+        href: "/about#approach",
+      },
+      {
+        label: "Partnerships",
+        href: "/about/partners",
+      },
     ],
   },
   {
     label: "Our Work",
     href: "/our-work",
     children: [
-      { label: "Animal Welfare", href: "/our-work/animal-welfare" },
-      { label: "Community Development", href: "/our-work/community-development" },
-      { label: "Youth & Children's Programmes", href: "/our-work/youth-and-children" },
-      { label: "Skills & Training", href: "/our-work/skills-and-training" },
-      { label: "Human-Wildlife Coexistence", href: "/our-work/human-wildlife-coexistence" },
-      { label: "Social Responsibility", href: "/our-work/social-responsibility" },
+      {
+        label: "Entrepreneurship for Conservation",
+        href: "/our-work/entrepreneurship-for-conservation",
+      },
+      {
+        label: "Sustainable Agriculture & Rural Resilience",
+        href: "/our-work/sustainable-agriculture",
+      },
+      {
+        label: "Youth Opportunity & Mentorship",
+        href: "/our-work/youth-opportunity",
+      },
+      {
+        label: "Human-Wildlife Coexistence",
+        href: "/our-work/human-wildlife-coexistence",
+      },
+      {
+        label: "Herding for Conservation",
+        href: "/our-work/herding-for-conservation",
+      },
     ],
   },
-  { label: "Our Impact", href: "/impact" },
-  { label: "Stories", href: "/stories" },
-  { label: "Gallery", href: "/gallery" },
+  {
+    label: "Our Impact",
+    href: "/impact",
+  },
+  {
+    label: "Stories",
+    href: "/stories",
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
+  },
   {
     label: "Get Involved",
     href: "/get-involved",
     children: [
-      { label: "Donate", href: "/get-involved/donate" },
-      { label: "Volunteer", href: "/get-involved/volunteer" },
-      { label: "Partner With Us", href: "/get-involved/partner" },
-      { label: "Sponsor a Project", href: "/get-involved/sponsor-a-project" },
-      { label: "Become a Mentor", href: "/get-involved/volunteer#mentor" },
+      {
+        label: "Donate",
+        href: "/get-involved/donate",
+      },
+      {
+        label: "Partner With Us",
+        href: "/get-involved/partner",
+      },
+      {
+        label: "Visit Hwange",
+        href: "/visit",
+      },
+      {
+        label: "Volunteer & Mentor",
+        href: "/get-involved/volunteer",
+      },
+      {
+        label: "Sponsor an Initiative",
+        href: "/get-involved/sponsor-a-project",
+      },
     ],
   },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
-
-export const footerPolicyLinks: NavItem[] = [
-  { label: "Transparency & Governance", href: "/transparency" },
-  { label: "Safeguarding & Child Protection", href: "/transparency#safeguarding" },
-  { label: "Environmental Policy", href: "/transparency#environment" },
-  { label: "Code of Conduct", href: "/transparency#code-of-conduct" },
-];
+export const footerPolicyLinks: NavItem[] = [];

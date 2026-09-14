@@ -7,7 +7,13 @@ import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
 import { ArrowRight, Quote } from "@/components/ui/Icons";
-import { formatDate, getStory, sortedStories, stories, type Block } from "@/content/stories";
+import {
+  type Block,
+  formatDate,
+  getStory,
+  sortedStories,
+  stories,
+} from "@/content/stories";
 import { getProgramme } from "@/content/programmes";
 import { site } from "@/content/site";
 
@@ -17,7 +23,11 @@ export function generateStaticParams(): Params[] {
   return stories.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const story = getStory(slug);
   if (!story) return { title: "Story not found" };
@@ -55,7 +65,9 @@ function BlockContent({ block }: { block: Block }) {
             “{block.text}”
           </blockquote>
           {block.attribution ? (
-            <figcaption className="mt-4 text-sm font-semibold text-ink-500">— {block.attribution}</figcaption>
+            <figcaption className="mt-4 text-sm font-semibold text-ink-500">
+              — {block.attribution}
+            </figcaption>
           ) : null}
         </figure>
       );
@@ -64,7 +76,11 @@ function BlockContent({ block }: { block: Block }) {
   }
 }
 
-export default async function StoryPage({ params }: { params: Promise<Params> }) {
+export default async function StoryPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   const { slug } = await params;
   const story = getStory(slug);
   if (!story) notFound();
@@ -109,14 +125,21 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
           </nav>
 
           <div className="mt-6 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">{story.category}</p>
-            <h1 className="mt-4 text-3xl leading-[1.12] sm:text-5xl">{story.title}</h1>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">
+              {story.category}
+            </p>
+            <h1 className="mt-4 text-3xl leading-[1.12] sm:text-5xl">
+              {story.title}
+            </h1>
             <p className="mt-5 text-sm text-sand-200/80">
               <time dateTime={story.date}>{formatDate(story.date)}</time>
               {programme ? (
                 <>
                   {" · "}
-                  <Link href={`/our-work/${programme.slug}`} className="underline hover:text-sand-50">
+                  <Link
+                    href={`/our-work/${programme.slug}`}
+                    className="underline hover:text-sand-50"
+                  >
                     {programme.shortTitle}
                   </Link>
                 </>
@@ -138,36 +161,55 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
           <article className="prose-tikobane max-w-none">
-            <p className="text-xl leading-relaxed text-forest-800">{story.summary}</p>
+            <p className="text-xl leading-relaxed text-forest-800">
+              {story.summary}
+            </p>
             {story.body.map((block, i) => (
               <BlockContent key={i} block={block} />
             ))}
             <p className="mt-10 border-t border-forest-900/10 pt-6 text-sm text-ink-500">
-              Names, photographs and quotations are published only with the informed consent of the people
-              involved.
+              Names, photographs and quotations are published only with the
+              informed consent of the people involved.
             </p>
           </article>
 
           <aside className="space-y-6 lg:sticky lg:top-32">
             {programme ? (
               <div className="rounded-3xl border border-forest-900/8 bg-white p-6 shadow-soft">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gold-600">Programme</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-gold-600">
+                  Programme
+                </p>
                 <h2 className="mt-2 font-display text-lg text-forest-800">
                   {programme.emoji} {programme.shortTitle}
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink-500">{programme.summary}</p>
-                <Button href={`/our-work/${programme.slug}`} variant="secondary" size="sm" className="mt-4">
+                <p className="mt-2 text-sm leading-relaxed text-ink-500">
+                  {programme.summary}
+                </p>
+                <Button
+                  href={`/our-work/${programme.slug}`}
+                  variant="secondary"
+                  size="sm"
+                  className="mt-4"
+                >
                   About this programme
                 </Button>
               </div>
             ) : null}
 
             <div className="rounded-3xl bg-forest-800 p-6 text-sand-100">
-              <h2 className="font-display text-lg text-sand-50">Make the next story possible</h2>
+              <h2 className="font-display text-lg text-sand-50">
+                Make the next story possible
+              </h2>
               <p className="mt-2 text-sm leading-relaxed">
-                Community programmes in Dete run on donations, volunteers and partnerships.
+                Community programmes in Dete run on donations, volunteers and
+                partnerships.
               </p>
-              <Button href="/get-involved/donate" variant="donate" size="md" className="mt-5 w-full">
+              <Button
+                href="/get-involved/donate"
+                variant="donate"
+                size="md"
+                className="mt-5 w-full"
+              >
                 Donate
               </Button>
             </div>
@@ -177,8 +219,14 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
       <Section tone="sand">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading eyebrow="Keep reading" title="More stories from Dete" />
-          <Link href="/stories" className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-forest-700 hover:text-gold-600">
+          <SectionHeading
+            eyebrow="Keep reading"
+            title="More stories from Dete"
+          />
+          <Link
+            href="/stories"
+            className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-forest-700 hover:text-gold-600"
+          >
             All stories
             <ArrowRight />
           </Link>
@@ -194,7 +242,10 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
       <CTABand />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
     </>
   );
 }
